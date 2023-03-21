@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+import currencyData from './data';
 import './App.css';
+import Currency from './components/Currency';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className='App'>
+			<h1 className='title'>Національний банк України</h1>
+			<h3 className='subtitle'>
+				Офіційний курс гривні до іноземних валют та облікова ціна банківських
+				металів
+			</h3>
+			<ul className='listItems'>
+				{currencyData.map((el, i) => (
+					<Currency key={i} txt={el.txt} rate={el.rate} />
+				))}
+			</ul>
+		</div>
+	);
 }
 
 export default App;
